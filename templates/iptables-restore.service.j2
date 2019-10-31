@@ -1,0 +1,11 @@
+[Unit]
+Description=Restore iptables rules
+Before=network-pre.target
+Conflicts=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/sbin/iptables-restore {{ iptables_rules_path }}/iptables-rules
+
+[Install]
+WantedBy=basic.target

@@ -1,0 +1,11 @@
+---
+- name: Rechargement de systemd daemon
+  systemd:
+    daemon_reload: yes
+
+- name: Redemarrage du Firewall
+  service:
+    name: "iptables-restore"
+    state: "restarted"
+    enabled: True
+...

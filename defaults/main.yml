@@ -1,0 +1,20 @@
+---
+iptables_rules_path: /usr/local/iptables
+
+
+iptables_allowed_output_tcp_ports: []
+
+iptables_allowed_output_udp_ports: []
+
+iptables_input_allowed_tcp_port: []
+
+iptables_input_allowed_udp_port: []
+
+# Format {ip:xx.xx.xx.xx, port:yyy}
+iptables_allowed_restricted_input_tcp_ports: []
+
+iptables_allowed_restricted_input_udp_ports: []
+
+# Format {ip:xx.xx.xx.xx, sport:yyy, dport:zzz}
+iptables_input_transfert_allowed_tcp_port: []
+...
