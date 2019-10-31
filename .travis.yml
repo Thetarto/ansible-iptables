@@ -1,0 +1,21 @@
+---
+language: python
+services: docker
+
+env:
+  global:
+    - ROLE_NAME: iptables
+
+install:
+  - pip install molecule docker
+
+before_script:
+  - cd ../
+  - mv ansible-$ROLE_NAME thetarto.$ROLE_NAME
+  - cd thetarto.$ROLE_NAME
+
+script:
+  - molecule test
+
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

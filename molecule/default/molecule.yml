@@ -1,0 +1,18 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: docker
+lint:
+  name: yamllint
+platforms:
+  - name: instance
+    image: thetarto/ansible-debian10:v1
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+verifier:
+  name: testinfra
+  lint:
+    name: flake8
