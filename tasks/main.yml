@@ -1,22 +1,22 @@
 ---
-- name: Installation d'IPtables
+- name: Install Iptables
   package:
     name: iptables
     state: present
 
-- name: Créer dossier contenant les règles
+- name: Create rules folder
   file:
     path: "{{ iptables_rules_path }}"
     state: directory
     mode: 0775
 
-- name: Déploiement des règles
+- name: Deploy rules file
   template:
     src: "iptables-rules.j2"
     dest: "{{ iptables_rules_path }}/iptables-rules"
     mode: 0644
     owner: root
-  notify: Redemarrage du Firewall
+  notify: Restart iptables
 
 - name: Copy systemd unit file
   template:
@@ -25,6 +25,5 @@
     owner: "root"
     group: "root"
     mode: "0644"
-  notify: Rechargement de systemd daemon
-
+  notify: Reload systemd daemon
 ...
