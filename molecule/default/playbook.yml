@@ -2,4 +2,4 @@
 - name: Converge
   hosts: all
   roles:
-    - role: thetarto.iptables
+    - role: supertarto.iptables
