@@ -1,10 +1,4 @@
 ---
-- name: Reload systemd daemon
-  service:
-    name: "iptables-restore.service"
-    state: "reloaded"
-    enabled: true
-
 - name: Restart iptables
   service:
     name: "iptables-restore"

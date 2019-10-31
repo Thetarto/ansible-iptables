@@ -25,5 +25,8 @@
     owner: "root"
     group: "root"
     mode: "0644"
-  notify: Reload systemd daemon
+    
+- name: systemd daemon-reload
+  systemd:
+    daemon_reload: yes
 ...
