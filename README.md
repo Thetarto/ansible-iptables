@@ -50,3 +50,4 @@ iptables_input_transfert_allowed_tcp_port:
 ansible-galaxy install thetarto.iptables
 ```
 ## License
+GPL V3.0
