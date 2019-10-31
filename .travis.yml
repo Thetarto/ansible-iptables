@@ -11,8 +11,8 @@ install:
 
 before_script:
   - cd ../
-  - mv ansible-$ROLE_NAME thetarto.$ROLE_NAME
-  - cd thetarto.$ROLE_NAME
+  - mv ansible-$ROLE_NAME supertarto.$ROLE_NAME
+  - cd supertarto.$ROLE_NAME
 
 script:
   - molecule test
