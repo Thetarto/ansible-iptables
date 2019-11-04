@@ -18,14 +18,14 @@
     owner: root
   notify: Restart iptables
 
-# - name: Copy firewall init script into place.
-# template:
-#    src: iptables.init.j2
-#    dest: /etc/init.d/iptables
-#    owner: root
-#    group: root
-#    mode: 0755
-#  when: "ansible_service_mgr != 'systemd'"
+ - name: Copy firewall init script into place.
+   template:
+    src: iptables.init.j2
+    dest: /etc/init.d/iptables
+    owner: root
+    group: root
+    mode: 0755
+  when: "ansible_service_mgr != 'systemd'"
 
 - name: Copy systemd unit file (systemd)
   template:
@@ -34,10 +34,10 @@
     owner: "root"
     group: "root"
     mode: "0644"
-#  when: "ansible_service_mgr == 'systemd'"
+  when: "ansible_service_mgr == 'systemd'"
 
 - name: systemd daemon-reload (sytemd)
   systemd:
     daemon_reload: true
-#  when: "ansible_service_mgr == 'systemd'"
+  when: "ansible_service_mgr == 'systemd'"
 ...

@@ -8,12 +8,6 @@ lint:
 platforms:
   - name: instance
     image: thetarto/ansible-debian10:v1
-    command: /sbin/init
-    tmpfs:
-      - /run
-      - /tmp
-    volumes:
-      - /sys/fs/cgroup:/sys/fs/cgroup:ro
 provisioner:
   name: ansible
   lint:
