@@ -1,0 +1,67 @@
+
+iptables -P INPUT ACCEPT
+iptables -P FORWARD ACCEPT
+iptables -P OUTPUT ACCEPT
+iptables -t filter -F
+iptables -t filter -X
+
+# Allow local traffic
+iptables -A INPUT -i lo -j ACCEPT
+iptables -A OUTPUT -o lo -j ACCEPT
+
+iptables -A INPUT -p tcp -i lo --dport 25 -j ACCEPT
+
+iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Allow established connections
+iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+
+# Open ports - Input -- TCP
+{% for adrr in iptables_input_allowed_tcp_port %}
+iptables -A INPUT -p tcp --dport {{ adrr }} -j ACCEPT
+{% endfor %}
+
+# Open ports - Input -- UDP
+{% for adrr in iptables_input_allowed_udp_port %}
+iptables -A INPUT -p udp --dport {{ adrr }} -j ACCEPT
+{% endfor %}
+
+# Open ports - Input -- TCP-- Restricted
+{% for adrr in iptables_allowed_restricted_input_tcp_ports %}
+iptables -A INPUT -s {{adrr.ip}} -p tcp --dport {{ adrr.port }} -j ACCEPT
+{% endfor %}
+
+# Open ports - Input -- UDP-- Restricted
+{% for adrr in iptables_allowed_restricted_input_udp_ports %}
+iptables -A INPUT -s {{adrr.ip}} -p udp --dport {{ adrr.port }} -j ACCEPT
+{% endfor %}
+
+# Open ports - Input -- transferts TCP
+{% for adrr in iptables_input_transfert_allowed_tcp_port %}
+iptables -A INPUT -s {{adrr.ip}} -p tcp --sport {{ adrr.sport }} --dport {{ adrr.dport }} -j ACCEPT
+{% endfor %}
+
+# Open ports - Output -- TCP
+{% for adrr in iptables_allowed_output_tcp_ports %}
+iptables -A OUTPUT -p tcp --dport {{ adrr }} -j ACCEPT
+{% endfor %}
+
+# Open ports - Output -- UDP
+{% for adrr in iptables_allowed_output_udp_ports %}
+iptables -A OUTPUT -p udp --dport {{ adrr }} -j ACCEPT
+{% endfor %}
+
+# Drop all other traffic.
+iptables -A INPUT -j DROP
+
+
+#  LOGDROPIN
+iptables -N LOGDROPIN
+iptables -A INPUT -j LOGDROPIN
+iptables -A LOGDROPIN -j LOG --log-level debug --log-prefix "DROP-IN " -m state --state NEW
+iptables -A LOGDROPIN -j DROP
+
+# LOGDROPOUT
+iptables -N LOGDROPOUT
+iptables -A OUTPUT -j LOGDROPOUT
+iptables -A LOGDROPOUT -j LOG --log-level debug --log-prefix "DROP-OUT " -m state --state NEW
