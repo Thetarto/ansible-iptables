@@ -18,8 +18,8 @@
     owner: root
   notify: Restart iptables
 
- - name: Copy firewall init script into place.
-   template:
+- name: Copy firewall init script into place.
+  template:
     src: iptables.init.j2
     dest: /etc/init.d/iptables
     owner: root
