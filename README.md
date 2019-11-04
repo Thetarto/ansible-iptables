@@ -15,11 +15,11 @@ iptables_rules_path: /usr/local/iptables
 ```
 List of all allowed output TCP port, for everywhere:
 ```yaml
-iptables_allowed_output_tcp_ports:[]
+iptables_allowed_output_tcp_ports: []
 ```
 List of all allowed output UDP port, for everywhere:
 ```yaml
-iptables_allowed_output_udp_ports:[]
+iptables_allowed_output_udp_ports: []
 ```
 List of all allowed input TCP port, from everywhere:
 ```yaml
