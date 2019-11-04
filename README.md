@@ -49,7 +49,7 @@ iptables_input_transfert_allowed_tcp_port:
 ## Examples
 ## Installation
 ```
-ansible-galaxy install thetarto.iptables
+ansible-galaxy install supertarto.iptables
 ```
 ## License
 GPL V3.0
