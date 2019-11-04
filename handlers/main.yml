@@ -1,7 +1,7 @@
 ---
 - name: Restart iptables
   service:
-    name: "iptables-restore"
+    name: "iptables"
     state: "restarted"
     enabled: true
 ...
