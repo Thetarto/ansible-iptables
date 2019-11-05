@@ -13,6 +13,7 @@ def test_hosts_file(host):
     assert f.user == 'root'
     assert f.group == 'root'
 
+
 @pytest.mark.parametrize('package', [
   'iptables'
 ])
@@ -20,6 +21,7 @@ def test_iptables_is_present(host):
     iptables = host.package(package)
 
     assert iptables.is_installed
+
 
 @pytest.mark.parametrize('service', [
   'iptables'
