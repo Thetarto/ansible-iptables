@@ -1,4 +1,5 @@
 import os
+import pytest
 
 import testinfra.utils.ansible_runner
 
@@ -14,18 +15,14 @@ def test_hosts_file(host):
     assert f.group == 'root'
 
 
-@pytest.mark.parametrize('package', [
-  'iptables'
-])
+@pytest.mark.parametrize('package', ['iptables'])
 def test_iptables_is_present(host,package):
     iptables = host.package(package)
 
     assert iptables.is_installed
 
 
-@pytest.mark.parametrize('service', [
-  'iptables'
-])
+@pytest.mark.parametrize('service', ['iptables'])
 def test_iptables_service_is_started(host,service):
     service = host.service(service)
 
