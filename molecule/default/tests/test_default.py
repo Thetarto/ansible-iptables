@@ -16,14 +16,14 @@ def test_hosts_file(host):
 
 
 @pytest.mark.parametrize('package', ['iptables'])
-def test_iptables_is_present(host,package):
+def test_iptables_is_present(host, package):
     iptables = host.package(package)
 
     assert iptables.is_installed
 
 
 @pytest.mark.parametrize('service', ['iptables'])
-def test_iptables_service_is_started(host,service):
+def test_iptables_service_is_started(host, service):
     service = host.service(service)
 
     assert service.is_running
