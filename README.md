@@ -1,7 +1,7 @@
 # Ansible Iptables
 [![Build Status](https://travis-ci.org/supertarto/ansible-iptables.svg?branch=master)](https://travis-ci.org/supertarto/ansible-iptables)
 
-Ansible role used to install iptable and configure some rules
+Ansible role used to install iptable and configure some rules.
 
 ## Tested plateform
 * Debian 9 (Stretch)
