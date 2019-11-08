@@ -5,6 +5,9 @@ services: docker
 env:
   global:
     - ROLE_NAME: iptables
+   matrix:
+    - MOLECULE_DISTRIB: debian10:v1
+    - MOLECULE_DISTRIB: debian9:v1
 
 install:
   - pip install molecule docker
