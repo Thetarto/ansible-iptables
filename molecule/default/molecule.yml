@@ -7,7 +7,7 @@ lint:
   name: yamllint
 platforms:
   - name: instance
-    image: thetarto/ansible-debian9:v1
+    image: thetarto/ansible-debian10:v1
     volumes:
       - /sys/fs/cgroup:/sys/fs/cgroup:ro
     privileged: true
