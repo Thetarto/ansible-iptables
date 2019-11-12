@@ -2,6 +2,8 @@
 [![Build Status](https://travis-ci.org/supertarto/ansible-iptables.svg?branch=master)](https://travis-ci.org/supertarto/ansible-iptables)
 
 Ansible role meant to install iptable and configure some rules. 
+## Requirements
+None
 
 ## Tested plateform
 * Debian 9 (Stretch)
@@ -46,7 +48,18 @@ iptables_input_transfert_allowed_tcp_port:
 - {ip:xx.xx.xx.xx, sport:yyy, dport:zzz}
 ```
 
-## Examples
+## Example(s)
+```yml
+---
+- hosts: somehost
+  roles:
+    - supertarto.iptables
+  vars:
+    iptables_allowed_restricted_input_tcp_ports:
+      - {ip:xx.xx.xx.xx, port:yyy}
+      - {ip:zz.zz.zz.zz, port:yyy}
+
+```
 ## Installation
 ```
 ansible-galaxy install supertarto.iptables
