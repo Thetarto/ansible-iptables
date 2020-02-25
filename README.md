@@ -6,7 +6,6 @@ Ansible role meant to install iptable and configure some rules.
 None
 
 ## Tested plateform
-* Debian 9 (Stretch)
 * Debian 10 (Buster)
 
 ## Role variables
