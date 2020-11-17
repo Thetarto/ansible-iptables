@@ -17,4 +17,6 @@ iptables_allowed_restricted_input_udp_ports: []
 
 # Format {ip:xx.xx.xx.xx, sport:yyy, dport:zzz}
 iptables_input_transfert_allowed_tcp_port: []
+
+iptables_drop_specific_adress: []
 ...

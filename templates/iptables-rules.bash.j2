@@ -36,6 +36,11 @@ iptables -A INPUT -s {{adrr.ip}} -p tcp --dport {{ adrr.port }} -j ACCEPT
 iptables -A INPUT -s {{adrr.ip}} -p udp --dport {{ adrr.port }} -j ACCEPT
 {% endfor %}
 
+# drop Specific adress
+{% for adrr in iptables_drop_specific_adress %}
+iptables -A INPUT -s {{adrr.ip}} -j DROP
+{% endfor %}
+
 # Open ports - Input -- transferts TCP
 {% for adrr in iptables_input_transfert_allowed_tcp_port %}
 iptables -A INPUT -s {{adrr.ip}} -p tcp --sport {{ adrr.sport }} --dport {{ adrr.dport }} -j ACCEPT

@@ -44,9 +44,13 @@ iptables_allowed_restricted_input_udp_ports:
 List of all allowed input TCP port, with restricted source, with transfer from a port to another:
 ```yaml
 iptables_input_transfert_allowed_tcp_port:
-- {ip:xx.xx.xx.xx, sport:yyy, dport:zzz}
+  - {ip:xx.xx.xx.xx, sport:yyy, dport:zzz}
 ```
-
+List of specific adress to block - ALL PORT
+```yml
+iptables_drop_specific_adress: []
+  - {ip: xx.xx.xx.xx}
+```
 ## Example(s)
 ```yml
 ---
