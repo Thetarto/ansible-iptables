@@ -1,5 +1,5 @@
 # Ansible Iptables
-[![Build Status](https://travis-ci.com/supertarto/ansible-iptables.svg?branch=master)](https://travis-ci.com/supertarto/ansible-iptables)
+[![CI](https://github.com/supertarto/ansible-iptables/workflows/CI/badge.svg?event=push)](https://github.com/supertarto/ansible-iptables/actions?query=workflow%3ACI)
 
 Ansible role meant to install iptable and configure some rules. 
 ## Requirements
