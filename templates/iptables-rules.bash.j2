@@ -13,6 +13,9 @@ iptables -A INPUT -p tcp -i lo --dport 25 -j ACCEPT
 
 iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
+# Allow ping
+iptables -A INPUT -p icmp -j ACCEPT
+
 # Allow established connections
 iptables -A OUTPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
 
