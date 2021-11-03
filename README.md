@@ -7,7 +7,7 @@ None
 
 ## Tested plateform
 * Debian 10 (Buster)
-* Debian 11 (Buster)
+* Debian 11 (Bulleyes)
 
 ## Role variables
 
